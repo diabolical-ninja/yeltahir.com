@@ -48,19 +48,11 @@ rss = 10
     title = ""
     weight = 1
   [[menu.main]]
-    identifier = "tags"
+    identifier = "cookbook"
     pre = ""
     post = ""
-    name = "Tags"
-    url = "/tags/"
-    title = ""
-    weight = 2
-  [[menu.main]]
-    identifier = "categories"
-    pre = ""
-    post = ""
-    name = "Categories"
-    url = "/categories/"
+    name = "Cookbook"
+    url = "/cookbook/"
     title = ""
     weight = 3
   [[menu.main]]
@@ -72,13 +64,13 @@ rss = 10
     title = "GitHub"
     weight = 6
   [[menu.main]]
-        identifier = "about"
-        pre = ""
-        post = ""
-        name = "About"
-        url = "/about/"
-        title = ""
-        weight = 5
+    identifier = "about"
+    pre = ""
+    post = ""
+    name = "About"
+    url = "/about/"
+    title = ""
+    weight = 5
 
 # Markup related configuration in Hugo
 [markup]
