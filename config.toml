@@ -3,7 +3,9 @@ defaultContentLanguage = "en"
 
 theme = "LoveIt"
 
-title = "Diabolical Ninja"
+title = "Yass"
+
+enableRobotsTXT = true
 
 
 [params]
@@ -22,21 +24,12 @@ rss = 10
 
     [params.home.profile]
           enable = true
-          # Gravatar Email for preferred avatar in home page
-          gravatarEmail = ""
-          # URL of avatar shown in home page
           avatarURL = "/images/avatar.png"
-          # title shown in home page (HTML format is supported)
-          title = ""
-          # subtitle shown in home page
-          subtitle = "Welcome to my blog"
-          # whether to use typeit animation for subtitle
-          typeit = true
-          # whether to show social links
           social = true
-          # disclaimer (HTML format is supported)
-          disclaimer = ""
-    # Social config in home page
+          subtitle = "Welcome to a wonderful world of curiousity & inquisitiveness"
+          typeit = true
+          disclaimer = "Data, Technology, Jazz"
+
     [params.social]
         GitHub = "https://github.com/diabolical-ninja"
         Linkedin = "yassineltahir/"
@@ -78,6 +71,14 @@ rss = 10
     url = "https://github.com/diabolical-ninja"
     title = "GitHub"
     weight = 6
+  [[menu.main]]
+        identifier = "about"
+        pre = ""
+        post = ""
+        name = "About"
+        url = "/about/"
+        title = ""
+        weight = 5
 
 # Markup related configuration in Hugo
 [markup]
@@ -85,3 +86,19 @@ rss = 10
   [markup.highlight]
     # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
     noClasses = false
+
+
+
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[params.search]
+  enable = true
+  type = "lunr"
+  contentLength = 4000
+  placeholder = ""
+  maxResultLength = 10
+  snippetLength = 30
+  highlightTag = "em"
+  absoluteURL = false
