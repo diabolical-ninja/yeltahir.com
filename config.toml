@@ -66,6 +66,25 @@ rss = 10
         # license info (HTML format is supported)
         license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 
+    [params.analytics]
+        enable = false
+        # Google Analytics
+        [params.analytics.google]
+        id = "UA-179937683-1"
+        # whether to anonymize IP
+        anonymizeIP = true
+
+
+    [params.cookieconsent]
+        enable = true
+        # text strings used for Cookie consent banner
+        [params.cookieconsent.content]
+            message = "This website uses Cookies"
+            dismiss = ""
+            link = ""
+
+
+
 [author]
   name = "Yass"
 
