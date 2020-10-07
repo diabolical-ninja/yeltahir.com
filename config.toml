@@ -2,8 +2,8 @@ baseURL = "https://yeltahir.com/"
 defaultContentLanguage = "en"
 
 theme = "LoveIt"
-
 title = "Yass"
+
 
 enableRobotsTXT = true
 
@@ -22,12 +22,29 @@ enableRobotsTXT = true
 #  amount of RSS pages
 rss = 10
 
+    # Header title config
+    [params.header.title]
+        pre = "<i class='fab fa-hubspot'></i>"
+        name = "Yass"
+        typeit = true
+
+# TypeIt config
+  [params.typeit]
+    # typing speed between each step (measured in milliseconds)
+    speed = 1
+    # blinking speed of the cursor (measured in milliseconds)
+    cursorSpeed = 1000
+    # character used for the cursor (HTML format is supported)
+    cursorChar = "|"
+    # cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
+    duration = -1
+
+
     [params.home.profile]
           enable = true
           avatarURL = "/images/avatar.png"
           social = true
-          subtitle = "Welcome to a wonderful world of curiousity & inquisitiveness"
-          typeit = true
+          subtitle = "Mildly interesting tidbits"
           disclaimer = "Data, Technology, Jazz"
 
     [params.social]
@@ -39,7 +56,7 @@ rss = 10
   [[menu.main]]
     identifier = "posts"
     # you can add extra information before the name (HTML format is supported), such as icons
-    pre = ""
+    pre = "<i class='fas fa-book'></i>"
     # you can add extra information after the name (HTML format is supported), such as icons
     post = ""
     name = "Posts"
@@ -49,10 +66,10 @@ rss = 10
     weight = 1
   [[menu.main]]
     identifier = "cookbook"
-    pre = ""
+    pre = "<i class='fas fa-cookie-bite'></i>"
     post = ""
     name = "Cookbook"
-    url = "/cookbook/"
+    url = "/cookbook/cookbook"
     title = ""
     weight = 3
   [[menu.main]]
@@ -65,7 +82,7 @@ rss = 10
     weight = 6
   [[menu.main]]
     identifier = "about"
-    pre = ""
+    pre = "<i class='far fa-address-card'></i>"
     post = ""
     name = "About"
     url = "/about/"
