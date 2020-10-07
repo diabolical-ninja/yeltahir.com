@@ -1,7 +1,7 @@
 ---
 # title: "Tips & Tricks"
 draft: false
-toc: true
+toc: false
 ---
 
 
