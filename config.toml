@@ -28,17 +28,16 @@ rss = 10
         name = "Yass"
         typeit = true
 
-# TypeIt config
-  [params.typeit]
-    # typing speed between each step (measured in milliseconds)
-    speed = 1
-    # blinking speed of the cursor (measured in milliseconds)
-    cursorSpeed = 1000
-    # character used for the cursor (HTML format is supported)
-    cursorChar = "|"
-    # cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
-    duration = -1
-
+    # TypeIt config
+    [params.typeit]
+        # typing speed between each step (measured in milliseconds)
+        speed = 1
+        # blinking speed of the cursor (measured in milliseconds)
+        cursorSpeed = 1000
+        # character used for the cursor (HTML format is supported)
+        cursorChar = "|"
+        # cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
+        duration = -1
 
     [params.home.profile]
           enable = true
@@ -50,6 +49,25 @@ rss = 10
     [params.social]
         GitHub = "https://github.com/diabolical-ninja"
         Linkedin = "yassineltahir/"
+
+    # Footer config
+    [params.footer]
+        enable = true
+        # LoveIt NEW | 0.2.0 Custom content (HTML format is supported)
+        custom = ''
+        # LoveIt NEW | 0.2.0 whether to show Hugo and theme info
+        hugo = true
+        # LoveIt NEW | 0.2.0 whether to show copyright info
+        copyright = true
+        # LoveIt NEW | 0.2.0 whether to show the author
+        author = true
+        # Site creation time
+        since = 2020
+        # license info (HTML format is supported)
+        license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+
+[author]
+  name = "Yass"
 
 
 [menu]
@@ -95,6 +113,10 @@ rss = 10
   [markup.highlight]
     # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
     noClasses = false
+
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 4
 
 
 
