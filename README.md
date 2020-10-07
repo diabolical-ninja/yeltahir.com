@@ -5,7 +5,7 @@
 My personal blog, hosted at [yeltahir.com](https://yeltahir.com) to capture thoughts, ideas, tips & tricks.
 
 
-# Useful Libraries:
+# Useful Libraries
 
 - [Hugo](https://github.com/gohugoio/hugo)
 - [LoveIt Theme for Hugo](https://github.com/dillonzq/LoveIt)
