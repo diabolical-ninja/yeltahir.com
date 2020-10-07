@@ -1,7 +1,8 @@
 ---
 title: "Python"
 draft: false
-toc: true
+toc:
+  auto: false
 ---
 
 # Handy Tricks for Python

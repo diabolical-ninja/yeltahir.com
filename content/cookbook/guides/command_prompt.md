@@ -1,7 +1,8 @@
 ---
 title: "Command Prompt"
 draft: false
-toc: true
+toc:
+  auto: false
 ---
 
 # Command Prompt Tips & Tricks

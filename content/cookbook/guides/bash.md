@@ -1,9 +1,10 @@
 ---
-title: "Bash"
 draft: false
+toc:
+  auto: true
 ---
 
-# File Sizes {#file-sizes}
+# File Sizes
 Size of all files in a directory
 ```bash
 du -h
@@ -20,7 +21,7 @@ du -h -d 1
 ```
 
 
-# Find files {#find-files}
+# Find files
 ## List Files & directories
 ```bash
 ls
@@ -40,7 +41,7 @@ ls | grep "<file/directory name>"
 
 
 
-# Find String   {#find-string}
+# Find String
 ## All files containing a string
 ```bash
 grep "<search string">
@@ -58,7 +59,7 @@ grep "<search string>" my/directory/myfile.txt
 ```
 
 
-# Assign Environment Variables  {#assign-env-vars}
+# Assign Environment Variables
 
 If you've got a list of environment variables in a `.env` file, this will assign them all to your existing environment:
 ```bash
