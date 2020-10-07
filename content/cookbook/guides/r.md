@@ -1,7 +1,8 @@
 ---
 title: "R"
 draft: false
-toc: true
+toc:
+  auto: false
 ---
 
 

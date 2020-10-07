@@ -1,7 +1,8 @@
 ---
 title: "VS Code"
 draft: false
-toc: true
+toc:
+  auto: false
 ---
 
 # Handy Tricks for VS Code

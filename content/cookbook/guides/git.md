@@ -1,7 +1,8 @@
 ---
 title: "Git"
 draft: false
-toc: true
+toc:
+  auto: false
 ---
 
 # Handy Tricks for Git

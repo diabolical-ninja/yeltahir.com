@@ -1,7 +1,8 @@
 ---
 title: "T-SQL"
 draft: false
-toc: true
+toc:
+  auto: false
 ---
 
 # Handy Tricks for T-SQL
@@ -125,7 +126,7 @@ ROW_NUMBER() OVER(PARTITION BY TerritoryName ORDER BY SalesYTD DESC)
 ## Check if table exists
 
 ```SQL
-IF EXISTS(select * from IBIT_Analytics_Applications.INFORMATION_SCHEMA.TABLES where TABLE_NAME = '<table name>' AND TABLE_SCHEMA = 'dbo')
+IF EXISTS(select * from <database_name>.INFORMATION_SCHEMA.TABLES where TABLE_NAME = '<table name>' AND TABLE_SCHEMA = 'dbo')
 	DROP TABLE <table name>;
 ```
 
