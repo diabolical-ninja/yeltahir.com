@@ -83,6 +83,10 @@ rss = 10
             dismiss = ""
             link = ""
 
+    [params.math]
+        enable = true
+
+
 
 
 [author]
