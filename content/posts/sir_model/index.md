@@ -5,12 +5,14 @@ draft: false
 
 resources:
 - name: featured-image
-  src: topredictane.jpg
+  src: markus-spiske-3_SvgDspSTE-unsplash.jpg
 
 toc:
   auto: false
 math:
   enable: true
+
+
 ---
 
 
@@ -124,14 +126,60 @@ The average number of secondary cases arising from an average primary case in an
 {{< /admonition >}}
 
 
-This seemingly simple number is key because it informs how fast an indectious disease grows and provides a basis to try and control it. In order to stop the spread of an epidemic, one must ensure people recover faster than new individuals are infected and through emperical calculation of the effective $R_0$ governments and policy makers can assess whether or not their measures are working.
+This seemingly simple number is key because it informs how fast an infectious disease grows and provides a basis to try and control it. In order to stop the spread of an epidemic, one must ensure people recover faster than new individuals are infected and through emperical calculation of the effective $R_0$ governments and policy makers can assess whether or not their measures are working.
 
 
 
 ### How bad will it be?
 
-Now we know how fast it will spread and how to control it, lets see if we can identify how big the epidemic will be.
+Now we know how fast it will spread and how to control it, lets see if we can identify how big the epidemic will be. Using some mathematical jiggery pockery we can eliminate $I$, which will help us identify how big an epidemic is likely to grow. We do this by first dividing our equation for $R'$ into $S'$, which gives us:
 
+$$ \frac{dS}{dR} = \frac{-\beta S}{\gamma}  = -R_0 S $$
+
+If we assume that $R(0) = 0 $, integrating this gives us:
+
+$$ S(t) = S(0) e^{-R(0)R(t)} $$
+
+At the end of an epidemic we'll assume there are no more infected individuals, thus $I(\infty) = 0 $. Furthermore the number of suspectible individuals remaining is the initial proportion minus whoever got infected, thus:
+
+$$ As \ t \to \infty, \ S(\infty) = S(0) - R(\infty) $$
+
+
+Finally, in our model the total number of people recovered is the total infected and thus a measure of how big an epidemic will be. This is referred as the **Attack Rate** and will be represented by $A$. Subbing the above equation into our new equation for $S(t)$, and rearranging, we now get:
+
+$$ R(\infty) = S(0) - S(0)e^{-R(0)R(\infty)} $$
+$$ A = S(0) - S(0)e^{-R(0)A} $$
+
+And remembering almost everyone started as suspectible we get:
+
+$$ A = 1 - e^{-R(0)A} $$
+
+
+Solving this gives us a few interesting results:
+1. There is no epidemic when the average number of seconday cases is less than one. Breaching this is known the as **epidemic threshold**
+1. The attack rate grows with $R_0$ but it bounded by the number of initial susceptibles, $S(0)$
+1. Not all epidemics result in everyone becoming infected. Another good reason to keep that infection rate down!
+
+
+<iframe width="800" height="600" name="epidemic-threshold" src="epidemic_threshold.html" style="border:none;" ></iframe>
+
+
+
+
+### Exploring the model
+
+
+Now we have a feel for how big an epidemic might be and what the initial conditions need to look like for an epidemic to occur, lets take a look at how epidemics behave over time. 
+
+Below is a numerical approximation of the SIR model, allowing us to see how the epidemic behaves over time and how changes to the infection and recovery rates impact the speed of the epidemic. Notice what happens when $\beta$ is less than $\gamma$? How about as $R_0$ grows?
+
+
+<iframe width="800" height="600" scrolling="no" style="border:none;"  name="sir-curves" src="https://simple-sir-model.herokuapp.com/"></iframe>
+
+
+{{< admonition type=note title="Note" open=false >}}
+If you want to explore further the [source code](https://github.com/diabolical-ninja/epidemic_sir_model) is available.
+{{< /admonition >}}
 
 
 
