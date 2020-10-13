@@ -86,7 +86,14 @@ rss = 10
     [params.math]
         enable = true
 
-
+    [params.page.comment.utterances]
+        enable = true
+        # owner/repo
+        repo = "diabolical-ninja/yeltahir.com"
+        issueTerm = "pathname"
+        label = "blog-comments"
+        lightTheme = "github-light"
+        darkTheme = "github-dark"
 
 
 [author]
@@ -140,6 +147,10 @@ rss = 10
   [markup.tableOfContents]
     startLevel = 1
     endLevel = 4
+
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
 
 
 
