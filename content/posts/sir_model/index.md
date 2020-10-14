@@ -12,39 +12,36 @@ toc:
 math:
   enable: true
 
+mermaid: true
 
 ---
 
 
-As the coronavirus pandemic continues to spread throughout 2020 and the world, I find myself somewhat charmed to see the mathematics studied back in my university days make the news and can't help but reminisce. As such I decided to dust off the text books and reacquaint myself with modelling an epidemic. On y va!
+As the coronavirus pandemic spreads through 2020 and across the world, I find myself somewhat charmed to see the mathematics studied back in my university days make the news and can't help but reminisce. As such I decided to dust off the text books and reacquaint myself with modelling an epidemic.
 
 
 ## What is a compartmental model?
 
-The basis for many (most?) epidemic models is compartmental modelling. These allow different states to be captured in distinct compartments and the effects of moving between each comparement observed. The simplest model used is what is known as the SIR model, which stands for Susceptible - Infected - Recovered.
+The basis for many (most?) epidemic models is compartmental modelling. These provide a framework for capturing different states and individual can exist in and the effects of moving between states. The simplest model used is what is known as the SIR model, which stands for Susceptible - Infected - Recovered.
 
 The premise is, at anypoint in time an individual can be:
 * Susectible to being infected
 * Infected & thus infectious
 * Recovered (or removed) and no longer available to be infected
 
-Over time individuals can move through each compartment and thus we have the basis for our compartmental model:
 
-{{< mermaid >}}
-graph LR;
-    Susceptible --> Infected
-    Infected --> Recovered
-{{< /mermaid >}}
-
-Futhermore, we can define the rate at which people move from compartment to compartment. Normally these are defined as:
-- $\beta$: The probability of a susceptible individual becoming infected upon interaction with an infected party
-- $\gamma$: The rate at which infected individuals recover, also known as the recovery rate
+Over time individuals can move through each compartment and we can define the rates for this movement. This gives us the basis for our compartmental model:
 
 {{< mermaid >}}
 graph LR;
     Susceptible --Beta--> Infected
     Infected --Gamma--> Recovered
 {{< /mermaid >}}
+
+Where by:
+- $\beta$: The probability of a susceptible individual becoming infected upon interaction with an infected party
+- $\gamma$: The rate at which infected individuals recover, also known as the recovery rate
+
 
 With this we can to build our model. Noting that the number of individuals in each compartment changes over time, we now have:
 
@@ -67,7 +64,7 @@ That's a good start, but what we really want to know is how people move between 
 ## Moving compartments
 
 ### Getting Infected
-At any point in time the number of people getting infected is defined as the proportion that are susceptible, interacting with the infectious group and getting infected at a rate of $\beta$, thus we get $\beta \times S(t) \times I(t)$.
+At any point in time the number of people getting infected is defined as the proportion that are susceptible interacting with the infectious group and getting infected at a rate of $\beta$, thus we get $\beta \times S(t) \times I(t)$.
 
 ### Recovering
 Furthermore, at any point in time infectious people are recovering giving us $\gamma \times I(t)$
@@ -102,12 +99,11 @@ Furthermore, at the start of an epidemic we need the number of people getting in
 
 $$ \frac{dI}{dt} > 0 $$
 
-Additionally, can rearrange the equation to get:
+Additionally, we can rearrange the equation to get:
 
 $$ \frac{dI}{dt} = I(\beta S(t) - \gamma) $$
 
-
-In order to satisfy a positive growth in the beginning we need:
+Putting the two together we can see that to satisfy a positive growth in the beginning we need:
 
 $$ \beta S(t) - \gamma > 0 $$
 
@@ -116,7 +112,6 @@ Given our prior assumption of $ S(0) \approx 1 $ and with some more rearranging 
 $$ \frac{\beta}{\gamma} > 1 $$ 
 
 In other words, for an epidemic to take-off we need the rate of people getting infected to exceed the rate of recovery. This is commonly referred to as the **basic reproductive ratio** and defined as:
-
 
 
 {{< admonition type=quote title="The Basic Reproductive Ratio" open=true >}}
@@ -145,9 +140,8 @@ At the end of an epidemic we'll assume there are no more infected individuals, t
 $$ As \ t \to \infty, \ S(\infty) = S(0) - R(\infty) $$
 
 
-Finally, in our model the total number of people recovered is the total infected and thus a measure of how big an epidemic will be. This is referred as the **Attack Rate** and will be represented by $A$. Subbing the above equation into our new equation for $S(t)$, and rearranging, we now get:
+Finally, in our model the total number of people recovered is the total infected and thus a measure of how big an epidemic will be. This is referred to as the **Attack Rate** and will be represented by $A$. Subbing the above equation into our new equation for $S(t)$, and rearranging, we now get:
 
-$$ R(\infty) = S(0) - S(0)e^{-R(0)R(\infty)} $$
 $$ A = S(0) - S(0)e^{-R(0)A} $$
 
 And remembering almost everyone started as suspectible we get:
@@ -157,12 +151,11 @@ $$ A = 1 - e^{-R(0)A} $$
 
 Solving this gives us a few interesting results:
 1. There is no epidemic when the average number of seconday cases is less than one. Breaching this is known the as **epidemic threshold**
-1. The attack rate grows with $R_0$ but it bounded by the number of initial susceptibles, $S(0)$
+1. The attack rate grows with $R_0$ but is bounded by the number of initial susceptibles, $S(0)$
 1. Not all epidemics result in everyone becoming infected. Another good reason to keep that infection rate down!
 
 
 <iframe width="800" height="600" name="epidemic-threshold" src="epidemic_threshold.html" style="border:none;" ></iframe>
-
 
 
 
@@ -189,7 +182,57 @@ Now obviously we've made some assumptions along the way, sanded off a few corner
 
 This is where the compartmental model becomes a really powerful tool. By following the same reasoning as with SIR we can introduce as many compartments as we like with different rates of movement, interractions and probabalistic behaviours.
 
-<!-- Examples for isolation &/or vaccination -->
+### Lets add a vaccine
+
+Lets say a vaccine was developed but we didn't have enough of it to vaccinate everyone. We can update our model to include individuals heading straight to recovered and skipping the infectious stage. Our flow is updated to:
+
+{{< mermaid >}}
+graph LR;
+    Susceptible --Beta--> Infected
+    Infected --Gamma--> Recovered
+    Susceptible --Row--> Recovered
+{{< /mermaid >}}
+
+And our model system is also updated to reflect this:
+
+$$ \frac{dS}{dt} = - \beta S(t) I(t) - \rho S(t) $$
+$$ \frac{dI}{dt} = \beta S(t) I(t) - \gamma I(t) $$
+$$ \frac{dR}{dt} =  \gamma I(t) + \rho S(t) $$
+
+Furthermore, by experimenting with the value for $\rho$ we can figure out the proportion of the population that must be vaccinated to prevent the epidemic from occuring. This is know as **herd immunity**.
+
+
+### What if people relapse?
+
+What if recovered individuals are only immune for a period of time? What if those infected may either recover with or without immunity? We can update our model to accomodate this.
+
+{{< mermaid >}}
+graph LR;
+    Susceptible --Beta--> Infected
+    Infected --Gamma--> Suspectible
+    Infected --Omega--> Recovered
+    Recovered --Row--> Susceptible
+{{< /mermaid >}}
+
+And our model system is also updated to reflect this:
+
+$$ \frac{dS}{dt} = - \beta S(t) I(t) + \rho R(t) + \omega I(t) $$
+$$ \frac{dI}{dt} = \beta S(t) I(t) - \gamma I(t) - \omega I(t) $$
+$$ \frac{dR}{dt} =  \gamma I(t) - \rho R(t) $$
+
+
+### And for Coronavirus?
+
+In April 2020 the Doherty Institute [released their modelling](https://www.doherty.edu.au/uploads/content_doc/McVernon_Modelling_COVID-19_07Apr1_with_appendix.pdf) for the Australian government. As you can see their model is considerably more complex but it's built off the same principles as we've discussed.
+
+![alt text](doherty_model.png)
+
+
+### A couple of considerations
+
+While these models may appear like exact representation of an epidemic they are filled with assumptions and should be treated as nothing more than a guiding tool. They are only as good as the assumptions we give it and allow us to simulate different policies, disease assumptions and more to understand potential outcomes.
+
+In practise the parameters for infection rate, recovery rate and any other parameter used is estimated based on observed data. Futhermore, distributions tend to be used for each parameter with hundreds or thousands of simulations drawing from those distributions to understand the potential epidemic outcomes.
 
 
 ## References
@@ -201,7 +244,7 @@ For those interested in the modelling used by the Australian government to infor
 
 
 
-The book [Modeling Infectious Diseases in Humans and Animals](https://press.princeton.edu/books/hardcover/9780691116174/modeling-infectious-diseases-in-humans-and-animals) by Matt J. Keeling and Pejman Rohani is an excellent read and great introduction to mathematical modelling of diseases, covering compartmental models discussed here and its many variations.
+Also, the book [Modeling Infectious Diseases in Humans and Animals](https://press.princeton.edu/books/hardcover/9780691116174/modeling-infectious-diseases-in-humans-and-animals) by Matt J. Keeling and Pejman Rohani is an excellent read and great introduction to mathematical modelling of diseases, covering compartmental models discussed here and its many variations.
 
 
 
