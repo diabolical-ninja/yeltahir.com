@@ -1,6 +1,6 @@
 ---
 title: "Epidemic Modelling"
-date: 2020-10-09T00:00:00+11:00
+date: 2020-10-16T00:00:00+11:00
 draft: false
 
 resources:
