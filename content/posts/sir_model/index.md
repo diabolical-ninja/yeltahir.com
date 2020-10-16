@@ -22,9 +22,9 @@ As the coronavirus pandemic spreads through 2020 and across the world, I find my
 
 ## What is a compartmental model?
 
-The basis for many (most?) epidemic models is compartmental modelling. These provide a framework for capturing different states and individual can exist in and the effects of moving between states. The simplest model used is what is known as the SIR model, which stands for Susceptible - Infected - Recovered.
+The basis for many epidemic models is compartmental modelling. These provide a framework for capturing different states an individual can exist in and the effects of moving between them. The simplest model used is what is known as the SIR model, which stands for Susceptible - Infected - Recovered.
 
-The premise is, at anypoint in time an individual can be:
+The premise is, at anypoint in time an individual can be one of:
 * Susectible to being infected
 * Infected & thus infectious
 * Recovered (or removed) and no longer available to be infected
@@ -43,7 +43,7 @@ Where by:
 - $\gamma$: The rate at which infected individuals recover, also known as the recovery rate
 
 
-With this we can to build our model. Noting that the number of individuals in each compartment changes over time, we now have:
+Using this we can begin to build our model. Noting that the number of individuals in each compartment changes over time, we have:
 
 - $ S(t) $ : The number of susceptible individuals at time $t$    
 - $ I(t) $ : The number of infected individuals at time $t$    
@@ -54,7 +54,7 @@ Like every good mathematical model, lets add in some assumptions to make our lif
 
 $$ S(t) + I(t) + R(t) = N $$
 
-And to make things even easier, lets represent it as proportions of the population rather than absolute counts:
+And to make things even easier, lets represent it as proportions of the population rather than absolutes:
 
 $$ S(t) + I(t) + R(t) = 1 $$
 
@@ -70,7 +70,7 @@ At any point in time the number of people getting infected is defined as the pro
 Furthermore, at any point in time infectious people are recovering giving us $\gamma \times I(t)$
 
 ### Putting it all together
-As the indidivuals getting infected and recovering are moving between groups, they allow us to define the rate of change for the population in each compartment, giving us:
+As the indidivuals getting infected and recovering are moving between groups, they allow us to define the rate of change for the population in each compartment:
 
 $$ \frac{dS}{dt} = - \beta S(t) I(t) $$
 $$ \frac{dI}{dt} = \beta S(t) I(t) - \gamma I(t) $$
@@ -89,7 +89,7 @@ Before we get started, we need....
 At $t=0$ there has to be at least 1 infected individual otherwise there is no epidemic. Also, again to make the maths a little easier, we're going to assume that everyone else is suspectible. 
 
 $$ S(0) \approx 1 $$
-$$ I(0) > 0,  I(0) \approx 0$$
+$$ I(0) > 0, \  I(0) \approx 0$$
 $$ R(0) = 0 $$
 
 
@@ -99,13 +99,13 @@ Furthermore, at the start of an epidemic we need the number of people getting in
 
 $$ \frac{dI}{dt} > 0 $$
 
-Additionally, we can rearrange the equation to get:
+Additionally, we can rearrange $I'(t)$ to get:
 
-$$ \frac{dI}{dt} = I(\beta S(t) - \gamma) $$
+$$ \frac{dI}{dt} = I(\beta S - \gamma) $$
 
-Putting the two together we can see that to satisfy a positive growth in the beginning we need:
+Noting that $I(t)$ is always positive, we can see that to satisfy a positive growth in the beginning we need:
 
-$$ \beta S(t) - \gamma > 0 $$
+$$ \beta S - \gamma > 0 $$
 
 Given our prior assumption of $ S(0) \approx 1 $ and with some more rearranging we get:
 
@@ -123,6 +123,7 @@ The average number of secondary cases arising from an average primary case in an
 
 This seemingly simple number is key because it informs how fast an infectious disease grows and provides a basis to try and control it. In order to stop the spread of an epidemic, one must ensure people recover faster than new individuals are infected and through emperical calculation of the effective $R_0$ governments and policy makers can assess whether or not their measures are working.
 
+This leads to our next question...
 
 
 ### How bad will it be?
@@ -133,7 +134,7 @@ $$ \frac{dS}{dR} = \frac{-\beta S}{\gamma}  = -R_0 S $$
 
 If we assume that $R(0) = 0 $, integrating this gives us:
 
-$$ S(t) = S(0) e^{-R(0)R(t)} $$
+$$ S(t) = S(0) e^{-R_0R(t)} $$
 
 At the end of an epidemic we'll assume there are no more infected individuals, thus $I(\infty) = 0 $. Furthermore the number of suspectible individuals remaining is the initial proportion minus whoever got infected, thus:
 
@@ -142,15 +143,15 @@ $$ As \ t \to \infty, \ S(\infty) = S(0) - R(\infty) $$
 
 Finally, in our model the total number of people recovered is the total infected and thus a measure of how big an epidemic will be. This is referred to as the **Attack Rate** and will be represented by $A$. Subbing the above equation into our new equation for $S(t)$, and rearranging, we now get:
 
-$$ A = S(0) - S(0)e^{-R(0)A} $$
+$$ A = S(0) - S(0)e^{-R_0A} $$
 
 And remembering almost everyone started as suspectible we get:
 
-$$ A = 1 - e^{-R(0)A} $$
+$$ A = 1 - e^{-R_0A} $$
 
 
 Solving this gives us a few interesting results:
-1. There is no epidemic when the average number of seconday cases is less than one. Breaching this is known the as **epidemic threshold**
+1. There is no epidemic when the average number of seconday cases is less than one. The point at which $R_0$ surpasses 1 is known the as **epidemic threshold**
 1. The attack rate grows with $R_0$ but is bounded by the number of initial susceptibles, $S(0)$
 1. Not all epidemics result in everyone becoming infected. Another good reason to keep that infection rate down!
 
@@ -164,7 +165,7 @@ Solving this gives us a few interesting results:
 
 Now we have a feel for how big an epidemic might be and what the initial conditions need to look like for an epidemic to occur, lets take a look at how epidemics behave over time. 
 
-Below is a numerical approximation of the SIR model, allowing us to see how the epidemic behaves over time and how changes to the infection and recovery rates impact the speed of the epidemic. Notice what happens when $\beta$ is less than $\gamma$? How about as $R_0$ grows?
+Below is a numerical approximation of the SIR model, allowing us to see how the epidemic behaves and how changes to the infection and recovery rates impact the speed of the epidemic. Notice what happens when $\beta$ is less than $\gamma$? How about as $R_0$ grows?
 
 
 <iframe width="800" height="600" scrolling="no" style="border:none;"  name="sir-curves" src="https://simple-sir-model.herokuapp.com/"></iframe>
@@ -184,7 +185,7 @@ This is where the compartmental model becomes a really powerful tool. By followi
 
 ### Lets add a vaccine
 
-Lets say a vaccine was developed but we didn't have enough of it to vaccinate everyone. We can update our model to include individuals heading straight to recovered and skipping the infectious stage. Our flow is updated to:
+Lets say a vaccine was developed but we didn't have enough of it to vaccinate everyone. We can update our model to include vaccinated individuals heading straight to recovered and skipping the infectious stage. Our flow is updated to:
 
 {{< mermaid >}}
 graph LR;
@@ -230,12 +231,14 @@ In April 2020 the Doherty Institute [released their modelling](https://www.doher
 
 ### A couple of considerations
 
-While these models may appear like exact representation of an epidemic they are filled with assumptions and should be treated as nothing more than a guiding tool. They are only as good as the assumptions we give it and allow us to simulate different policies, disease assumptions and more to understand potential outcomes.
+While these models may appear like exact representation of an epidemic they are filled with assumptions and should be treated as nothing more than a guiding tool. They are only as good as the assumptions we give it and allow us to simulate different policies, disease characteristics and more to understand potential outcomes.
 
-In practise the parameters for infection rate, recovery rate and any other parameter used is estimated based on observed data. Futhermore, distributions tend to be used for each parameter with hundreds or thousands of simulations drawing from those distributions to understand the potential epidemic outcomes.
+In practise the parameters for infection rate, recovery rate and any other parameter used is estimated based on observed data. Futhermore, distributions tend to be used for each parameter with hundreds or thousands of simulations being run drawing from those distributions to understand potential epidemic outcomes.
 
 
 ## References
+
+Here we've really only started to scratch the surface of how compartmental models can be used for modelling epidemics.
 
 For those interested in the modelling used by the Australian government to inform the original COVID19 response, the Doherty Institute [released their research](https://www.doherty.edu.au/uploads/content_doc/McVernon_Modelling_COVID-19_07Apr1_with_appendix.pdf) and you can see this approach to modelling at work, albiet with a tad more complexity.
 
@@ -244,7 +247,7 @@ For those interested in the modelling used by the Australian government to infor
 
 
 
-Also, the book [Modeling Infectious Diseases in Humans and Animals](https://press.princeton.edu/books/hardcover/9780691116174/modeling-infectious-diseases-in-humans-and-animals) by Matt J. Keeling and Pejman Rohani is an excellent read and great introduction to mathematical modelling of diseases, covering compartmental models discussed here and its many variations.
+Additionally, for those looking to learn more the book [Modeling Infectious Diseases in Humans and Animals](https://press.princeton.edu/books/hardcover/9780691116174/modeling-infectious-diseases-in-humans-and-animals) by Matt J. Keeling and Pejman Rohani is an excellent read and great introduction to mathematical modelling of diseases, covering compartmental models discussed here and its many variations.
 
 
 
