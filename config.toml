@@ -88,7 +88,6 @@ rss = 10
 
     [params.page.comment.utterances]
         enable = true
-        # owner/repo
         repo = "diabolical-ninja/yeltahir.com"
         issueTerm = "pathname"
         label = "blog-comments"
