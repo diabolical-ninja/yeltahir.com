@@ -34,8 +34,11 @@ Over time individuals can move through each compartment and we can define the ra
 
 {{< mermaid >}}
 graph LR;
-    Susceptible --Beta--> Infected
-    Infected --Gamma--> Recovered
+    S(Susceptible) --Beta--> I(Infected)
+    I --Gamma--> R(Recovered)
+    style S fill:orange
+    style I fill:red
+    style R fill:lightgreen
 {{< /mermaid >}}
 
 Where by:
@@ -189,9 +192,12 @@ Lets say a vaccine was developed but we didn't have enough of it to vaccinate ev
 
 {{< mermaid >}}
 graph LR;
-    Susceptible --Beta--> Infected
-    Infected --Gamma--> Recovered
-    Susceptible --Row--> Recovered
+    S(Susceptible) --Beta--> I(Infected)
+    I --Gamma--> R(Recovered)
+    S --Rho--> R
+    style S fill:orange
+    style I fill:red
+    style R fill:lightgreen
 {{< /mermaid >}}
 
 And our model system is also updated to reflect this:
@@ -209,10 +215,13 @@ What if recovered individuals are only immune for a period of time? What if thos
 
 {{< mermaid >}}
 graph LR;
-    Susceptible --Beta--> Infected
-    Infected --Gamma--> Suspectible
-    Infected --Omega--> Recovered
-    Recovered --Row--> Susceptible
+    S(Susceptible) --Beta--> I(Infected)
+    I --Gamma--> R(Recovered)
+    I --Omega--> S
+    R --Rho--> S
+    style S fill:orange
+    style I fill:red
+    style R fill:lightgreen
 {{< /mermaid >}}
 
 And our model system is also updated to reflect this:
