@@ -15,7 +15,7 @@ mermaid: true
 
 In 2020 I decided it was time to fulfil the great Australian dream and buy a house. After not long on the classic property listing portals it became readily apparent that they could not answer the questions I wanted answered. Which homes have proper internet? Can I get to work within 10min? 30min? This led to the only solution a technologist knows; to throw my hands in the air and say “welp, guess I’ll have to build it myself!”. 
 
-I setout to build a simple API that, given a collection of search parameters, would return the house of my dreams! Here's what a build!
+I set out to build a simple API that, given a collection of search parameters, would return the house of my dreams! Here's what a build!
 
 
 {{< admonition type=success title="View the source" open=true >}}
@@ -48,7 +48,7 @@ While I’m in no rush to move (or buy) again, whenever that happens this app wi
 While there was a long list of desired attributes an overwhelming requirement was “can I get this via an API?”. With that I compiled features to start building out.
 
 ## What’s Available?
-Before any fancy filtering can be made I had to first know what properties were available. Thankfully the Domain Group have a fantastic [public API](https://developer.domain.com.au/) to retrieve and filter property listings. Together with their generous enough free tier and very handy swagger documentation, this would form the basis of the application.
+Before any fancy filtering can be made I had to first know what properties were available. Thankfully the Domain Group has a fantastic [public API](https://developer.domain.com.au/) to retrieve and filter property listings. Together with their generous enough free tier and very handy swagger documentation, this would form the basis of the application.
 
 ## Filter, filter, filter
 
@@ -161,7 +161,7 @@ Amongst the keys returned by the location API there is one called `frustrated`, 
 
 [View Source](https://github.com/diabolical-ninja/smart-property-search/blob/master/src/walkscore.py)
 
-For me, the way local residents interact with their surrounds really helps to shape the feel of a community. The local cafes or artisan produce stores, spending time in the local parks, walking from place to place rather than driving. These all combine to give a community an energy and an identity.
+For me, the way local residents interact with their surroundings really helps to shape the feel of a community. The local cafes or artisan produce stores, spending time in the local parks, walking from place to place rather than driving. These all combine to give a community an energy and an identity.
 
 Building out an accurate representation of these features into a single, filterable score is a difficult task. Fortunately the folks over at [Walk Score](https://www.walkscore.com/) have condensed attributes such as the availability of restaurants, public transport, schools and the like into a single walkability score. For this application the walkability score will be a sufficiently good proxy for those features to filter against.
 
