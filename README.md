@@ -5,6 +5,12 @@
 My personal blog, hosted at [yeltahir.com](https://yeltahir.com) to capture thoughts, ideas, tips & tricks.
 
 
+# Running it
+
+```bash
+hugo server -D # to render draft pages
+```
+
 # Useful Libraries
 
 - [Hugo](https://github.com/gohugoio/hugo)
