@@ -26,7 +26,7 @@ If you'd like to give this project a whirl it's all open source: [Smart Property
 
 The obvious question upfront is "why don't the big players build this?"
 
-These sites provide a nice example of the difference between a user and a customer or the now classic saying "if you're not paying for it you are the product". People looking to buy, sell or rent may be the primary site users but it’s the folk making, and paying for, the listing that are the real customers as they bring in the revenue. If you as a user could craft the perfect query and they then returned your perfect home first try there’d be little desire to spend time on the site and thus little desire for the agents to list. These 
+These sites provide a nice example of the difference between a user and a customer or the now classic saying *"if you're not paying for the product you are the product"*. People looking to buy, sell or rent may be the primary site users but it’s the folk making, and paying for, the listing that are the real customers as they bring in the revenue. If you as a user could craft the perfect query and they then returned your perfect home first try there’d be little desire to spend time on the site and thus little desire for the agents to list. These 
 
 
 # Cutting to the chase....
