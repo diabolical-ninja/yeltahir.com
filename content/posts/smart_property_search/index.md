@@ -1,5 +1,5 @@
 ---
-title: "House Purchase"
+title: "Smarter Property Search"
 date: 2021-04-11T00:00:00+11:00
 draft: true
 
