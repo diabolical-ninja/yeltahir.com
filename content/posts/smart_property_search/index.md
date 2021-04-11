@@ -1,7 +1,11 @@
 ---
 title: "Smarter Property Search"
 date: 2021-04-11T00:00:00+11:00
-draft: true
+draft: false
+
+resources:
+- name: featured-image
+  src: tierra-mallorca-rgJ1J8SDEAY-unsplash.jpg
 
 toc:
   auto: false
@@ -215,7 +219,7 @@ sequenceDiagram
     end
 
     activate App
-        App->>App: Filter by desired attributes
+        App->>App: Filter on walkability
     deactivate App
 
 {{< /mermaid >}}
