@@ -1,5 +1,5 @@
 ---
-title: "Zoot, Your Friendly Neighourhood Jazzbot"
+title: "Zoot, Your Friendly Neighbourhood Jazzbot"
 date: 2021-08-21T00:00:00+11:00
 draft: true
 
@@ -14,7 +14,7 @@ toc:
 
 Outside of data, a huge passion of mine is music, in particular jazz. In Melbourne we're fortunate to have quite a few establishments that support live music and offer amazing shows every night of the week. But this raises a problem; who to see? Where to go? What's on?!
 
-As friends and I constanstly returned to the same sites, the venues over and over every time we wanted to figure who to see 
+As friends and I constantly returned to the same sites, the venues over and over every time we wanted to figure who to see 
 
 Friends and I found ourselves constantly returning to the same venue websites over and over every time we tried to figure out who to see and at the same time the same thought kept popping up; "you know who's great at doing the same thing over and over again? Computers!" So without further ado I'd like to introduce you to [Zoot](https://m.me/rootytootyzooty), you're friendly neighbourhood jazzbot.
 
@@ -48,7 +48,7 @@ You can also find where the cool joints are around town. How? Just ask zoot!
 
 
 {{< admonition type=tip title="Zoot Help" open=false >}}
-Full help and how-to details are available on [Zoot's hompage](https://zootytooty.github.io/zoothome/)
+Full help and how-to details are available on [Zoot's homepage](https://zootytooty.github.io/zoothome/)
 {{< /admonition >}}
 
 
@@ -81,7 +81,7 @@ In future versions it would be fantastic to also collect the genre, musician nam
 
 ## I've got some data, but how do I access it?
 
-In order to store, save and access any of this gig information we needed a databse and a way of interacting with it. In the spirit of KISS we put a little REST API over the database mainly to federate the features we could support. For example in the future it would be great to allow users to add their own gigs to the database. Rather than rebuilding that functionality in the bot, accounting for duplicates, formatting and everything else required, a simple call to the same API used by the scraper ensures seamless consistency.
+In order to store, save and access any of this gig information we needed a database and a way of interacting with it. In the spirit of KISS we put a little REST API over the database mainly to federate the features we could support. For example in the future it would be great to allow users to add their own gigs to the database. Rather than rebuilding that functionality in the bot, accounting for duplicates, formatting and everything else required, a simple call to the same API used by the scraper ensures seamless consistency.
 
 As it currently stands Zoot's API supports:
 
@@ -95,7 +95,7 @@ As it currently stands Zoot's API supports:
 
 [View Source](https://github.com/zootytooty/BeBot)
 
-In order for any of this to work we needed a way for users to chat with Zoot. Would it be SMS? Do we build an app? Our choice was to use Facebook Messenger because of the incredibly large existing userbase, the support they have for chatbots and that it simplified what we needed to manage. It meant we didn't have to write or manage any new services that would directly face users. It's plug and play, and that's great!
+In order for any of this to work we needed a way for users to chat with Zoot. Would it be SMS? Do we build an app? Our choice was to use Facebook Messenger because of the incredibly large existing user base, the support they have for chatbots and that it simplified what we needed to manage. It meant we didn't have to write or manage any new services that would directly face users. It's plug and play, and that's great!
 
 
 ## Machine learning to the rescue...sort of
@@ -108,9 +108,9 @@ Often this is done by looking for keywords or phases, for example assuming if `h
 
 Fortunately a bunch of smart folk in the machine learning community have thought of this and developed something called Natural Language Understanding (NLU). For us there were two tools in the NLU toolkit of particular interest.
 
-### Intent Classifcation
+### Intent Classification
 
-The goal here is to be able to tag a sentance or user message with the general intent of the request. A single intent, for example "What's On?" could be phrased multiple ways and we want to learn that they all have the same meaning. If someone says "what's on", "who's playing tonight" or "what's crackalackin'" we want to learn they all share the same intent. For Zoot we have four intents:
+The goal here is to be able to tag a sentence or user message with the general intent of the request. A single intent, for example "What's On?" could be phrased multiple ways and we want to learn that they all have the same meaning. If someone says "what's on", "who's playing tonight" or "what's crackalackin'" we want to learn they all share the same intent. For Zoot we have four intents:
 
 * `whats_on`: For messages asking what's on, where and when
 * `venues`: When people what to know all venues around town
@@ -183,8 +183,8 @@ Once trained, we could call Wit's API with user messages and it would provide a 
 }
 ```
 
-{{< admonition type=info title="Wit Terminolgy" open=false >}}
-Wit breaks entities down futher into entities and traits but for the purpose of Zoot you can consider them one and the same.
+{{< admonition type=info title="Wit Terminology" open=false >}}
+Wit breaks entities down further into entities and traits but for the purpose of Zoot you can consider them one and the same.
 {{< /admonition >}}
 
 
@@ -223,9 +223,9 @@ The nice thing here is that it's incredibly easy to deploy, all being built off 
 
 An overarching consideration when making our technology and infrastructure choices was "is it easy?" and "is it free?". You'll notice everything is serverless and this meant we could focus on building Zoot & its functionality rather than building infrastructure. It also meant we could say:
 
-* Why MongoDB Atlas? Because their free tier is fanstastic
-* Why Heroku to host Zoot? Because their free tier is fanstastic
-* Why AWS Lambda? Because the free tier is fanstastic
+* Why MongoDB Atlas? Because their free tier is fantastic
+* Why Heroku to host Zoot? Because their free tier is fantastic
+* Why AWS Lambda? Because the free tier is fantastic
 * Why Wit.AI? Because it's 100% free
 * Why Facebook Messenger? Because it's 100% free
 
