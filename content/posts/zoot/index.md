@@ -1,7 +1,7 @@
 ---
 title: "Zoot, Your Friendly Neighbourhood Jazzbot"
-date: 2021-08-21T00:00:00+11:00
-draft: true
+date: 2021-08-22T00:00:00+11:00
+draft: false
 
 resources:
 - name: featured-image
@@ -14,9 +14,7 @@ toc:
 
 Outside of data, a huge passion of mine is music, in particular jazz. In Melbourne we're fortunate to have quite a few establishments that support live music and offer amazing shows every night of the week. But this raises a problem; who to see? Where to go? What's on?!
 
-As friends and I constantly returned to the same sites, the venues over and over every time we wanted to figure who to see 
-
-Friends and I found ourselves constantly returning to the same venue websites over and over every time we tried to figure out who to see and at the same time the same thought kept popping up; "you know who's great at doing the same thing over and over again? Computers!" So without further ado I'd like to introduce you to [Zoot](https://m.me/rootytootyzooty), you're friendly neighbourhood jazzbot.
+Friends and I constantly found ourselves returning to the same venue websites over and over every time we tried to figure out who to see and at the same time the same thought kept popping up; "you know who's great at doing the same thing over and over again? Computers!" So without further ado I'd like to introduce you to [Zoot](https://m.me/rootytootyzooty), you're friendly neighbourhood jazzbot.
 
 {{< admonition type=success title="View the source" open=true >}}
 If you'd like to look under the covers it's all open source: [Zooty Tooty](https://github.com/zootytooty)
@@ -26,7 +24,7 @@ If you'd like to look under the covers it's all open source: [Zooty Tooty](https
 Also, a big shout out to [Trent](https://github.com/trent-howard) & [Pete](https://github.com/petergreco), who without there would not be a Zoot!
 
 
-# Say Hi Zoot 👋🏽
+# Say hi Zoot 👋🏽
 
 Before we get into all the nitty gritty lets have some fun & give Zoot a whirl. You can chat with zoot on facebook at {{< link "https://m.me/rootytootyzooty" >}}. 
 
@@ -36,13 +34,13 @@ The simplest way to get started is to ask `What's on?` for all the shows availab
 
 ![alt text](zoot_whats_on.png)
 
-If you want to get a little fancy you can even specify a venue or a day (or both!):
+If you want to get a little fancy you can even specify a venue or a day (or both!)
 
 ![alt text](zoot_venue_date.png)
 
 ## Where to go?
 
-You can also find where the cool joints are around town. How? Just ask zoot!
+You can also find where the cool joints are around town. How? Just ask Zoot!
 
 ![alt text](zoot_venues.png)
 
@@ -52,7 +50,7 @@ Full help and how-to details are available on [Zoot's homepage](https://zootytoo
 {{< /admonition >}}
 
 
-# So, What's a Zoot?
+# So, what's a Zoot?
 
 At heart of it there are three core parts that make up Zoot; getting the gig info, the chat interface and some smarts to figure out what's going on.
 
@@ -81,7 +79,7 @@ In future versions it would be fantastic to also collect the genre, musician nam
 
 ## I've got some data, but how do I access it?
 
-In order to store, save and access any of this gig information we needed a database and a way of interacting with it. In the spirit of KISS we put a little REST API over the database mainly to federate the features we could support. For example in the future it would be great to allow users to add their own gigs to the database. Rather than rebuilding that functionality in the bot, accounting for duplicates, formatting and everything else required, a simple call to the same API used by the scraper ensures seamless consistency.
+In order to store, save and access any of this gig information we needed a database and a way of interacting with it. In the spirit of KISS we put a little REST API over the database mainly to federate the features we could support. For example, in the future it would be great to allow users to add their own gigs to the database. Rather than rebuilding that functionality in the bot or a website, having to accounting for duplicates, formatting and everything else required, a simple call to the same API used by the scraper ensures seamless consistency.
 
 As it currently stands Zoot's API supports:
 
@@ -95,7 +93,7 @@ As it currently stands Zoot's API supports:
 
 [View Source](https://github.com/zootytooty/BeBot)
 
-In order for any of this to work we needed a way for users to chat with Zoot. Would it be SMS? Do we build an app? Our choice was to use Facebook Messenger because of the incredibly large existing user base, the support they have for chatbots and that it simplified what we needed to manage. It meant we didn't have to write or manage any new services that would directly face users. It's plug and play, and that's great!
+In order for any of this to work we needed a way for users to chat with Zoot. Would it be SMS? Do we build an app? Our choice was to use Facebook Messenger because of the incredibly large existing user base, the support they have for chatbots and that it simplified what we needed to build. It meant we didn't have to write or manage any new services that would directly face users. It's plug and play, and that's great!
 
 
 ## Machine learning to the rescue...sort of
@@ -104,7 +102,7 @@ In order for any of this to work we needed a way for users to chat with Zoot. Wo
 
 Whenever someone sends Zoot a message we need to figure out what they're asking and whether there are any special words or context they're providing. If someone says "Yo Zoot, who's playing tomorrow at jazzlab?" we need to know they're interested in `Whats On`, specifically `tomorrow` and at the venue `Jazzlab`.
 
-Often this is done by looking for keywords or phases, for example assuming if `hi, hello or hey` are present then respond with your welcome message. Unfortunately this approach can quickly fall down because of multiple keywords or typos from users. Using the example above, is the user saying Hi or asking what's on? What if they miss a *"z"* in `jazlab`? It's easy for us to see the intent, see the similarity but it's much harder for computers. What would be ideal is if rather than looking for specific keywords we could build a more general understanding of the message intent and what it's asking.
+Often this is done by looking for keywords or phrases, for example assuming if `hi, hello or hey` are present then respond with your welcome message. Unfortunately this approach can quickly fall down because of multiple keywords or typos from users. Using the example above, is the user saying Hi or asking what's on? What if they miss a *"z"* in `jazlab`? It's easy for us to see the intent, see the similarity but it's much harder for computers. What would be ideal is if rather than looking for specific keywords we could build a more general understanding of the message intent and what it's asking.
 
 Fortunately a bunch of smart folk in the machine learning community have thought of this and developed something called Natural Language Understanding (NLU). For us there were two tools in the NLU toolkit of particular interest.
 
@@ -129,7 +127,7 @@ Yo Zoot, who's playing `tomorrow` at `jazzlab`?
 
 ### Wit.AI
 
-Rather than building our own model we used a service from Facebook called [Wit.ai](https://wit.ai/), which allowed us to provide sample user messages and tag them with the appropriate intent and entity/s. With those it was able learn this general understanding of what users were asking for and allowed us to respond a little smarter than if we stuck with only keywords.
+Rather than building our own models we used a service from Facebook called [Wit.ai](https://wit.ai/), which allowed us to provide sample user messages and tag them with the appropriate intent and entity/s. With those it was able learn this general understanding of what users were asking for and allowed us to respond a little smarter than if we stuck with only keywords.
 
 We trained Wit by sending many, many samples and built templates that allowed us to iterate across every possible combination of intent and entity. For example, one template for the `whats_on` intent was "Are there any gigs {entities_wit$datetime:datetime} at {traits_venue}", which generated samples such as:
 * Are there any gigs `tomorrow` at `Jazzlab`
@@ -210,18 +208,18 @@ No system is perfect, be it the keyword approach or rolling out the big guns tha
 For us the solution was quite ham-fisted. We purged Wit and trained it again. While this was successful I really cannot say why! If using this in your workplace, I would strongly suggest the use of test cases to validate what has been learnt and ensure it matches your desired functionality.
 
 
-# Putting It All Together
+# Putting it all together
 
 When we glue all those bits and pieces together we get something that looks like this.
 
 ![Zoot Architecture](Zoot_Architecture.png)
 
-The nice thing here is that it's incredibly easy to deploy, all being built off serverless services and if, by some miracle, Zoot turns out to be a wild success we can quickly and easily scale as far out as credit cards will permit without having to change a thing in the architecture.
+The nice thing here is that it's incredibly easy to deploy, all being built off serverless services and if, by some miracle, Zoot turns out to be a wild success we can quickly and easily scale as far out as our credit cards will permit without having to change a thing in the architecture.
 
 
-## How Good is Free?
+## How good is free?
 
-An overarching consideration when making our technology and infrastructure choices was "is it easy?" and "is it free?". You'll notice everything is serverless and this meant we could focus on building Zoot & its functionality rather than building infrastructure. It also meant we could say:
+An overarching consideration when making our technology and infrastructure choices was "is it easy?" and "is it free?". With everything being serverless it meant we could focus on building Zoot & its functionality rather than building infrastructure. It also meant we could say:
 
 * Why MongoDB Atlas? Because their free tier is fantastic
 * Why Heroku to host Zoot? Because their free tier is fantastic
@@ -232,6 +230,6 @@ An overarching consideration when making our technology and infrastructure choic
 Notice a pattern here?
 
 
-# Have a Play
+# Have a play
 
 Have a play, chat with [Zoot](https://m.me/rootytootyzooty) and if you're feeling really adventurous we'd love a few extra hands to increase the number venues!
