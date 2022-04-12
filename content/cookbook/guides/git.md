@@ -88,3 +88,24 @@ git reset --hard HEAD~2
 git push origin -f
 ```
 
+## Setting SSH Config
+
+For instances with multiple SSH configs available.
+
+1. Get github SSH config name
+```bash
+cat ~/.ssh/config
+```
+
+2. Add remote URL with the desired config name:
+```bash
+git remote set-url origin git@<user config name>:<User/Org name>/<repo name>.git
+
+# Eg:
+git remote set-url origin git@github.com:diabolical-ninja/yeltahir.com.git
+```
+
+3. Add ssh passphrase to keychain
+```
+ssh-add -K ~/.ssh/id_rsa
+```
