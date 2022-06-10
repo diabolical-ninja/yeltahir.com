@@ -13,6 +13,7 @@ tags = [
   "dark",
   "theme"
 ]
+ignoreErrors = ["error-missing-instagram-accesstoken", "error-remote-getjson"]
 features = [
   "cover-image",
   "favicon",
