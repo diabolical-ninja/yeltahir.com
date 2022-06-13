@@ -149,7 +149,7 @@ We can see this place has a fibre to the curb (FTTC) connection. Great!
 
 
 ## Frustrated?
-Keen observers may have noticed the key `frustrated`, a boolean field, in the response. While I have no idea what that refers to, thus far I’ve been unable to find a property where `frustrated == TRUE`...
+Keen observers may have noticed the key `frustrated`, a boolean field, in the response. While I have no idea what that refers to, thus far I’ve been unable to find a property where `frustrated == TRUE`. Interesting...
 
 
 # Happy Hacking
