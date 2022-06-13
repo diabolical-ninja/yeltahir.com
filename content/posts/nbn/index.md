@@ -12,14 +12,14 @@ toc:
 
 ---
 
-For avid readers of this blog (there is one...right?) you’ll remember my quest to find a house and the [app built](https://www.yeltahir.com/posts/smart_property_search/) to help out. While building that I stumbled across a few references to an unofficial NBN API that could be used to determine the technology type present for a given address. I presume a nifty nelly reverse engineered one or some of the nbn [check your address](https://www.nbnco.com.au/connect-home-or-business/check-your-address) sites to figure them out.
+For avid readers of this blog you’ll remember my quest to find a house and the [app built](https://www.yeltahir.com/posts/smart_property_search/) to help out. While building that I stumbled across a few references to an unofficial NBN API that could be used to determine the broadband technology type present (fibre to the home, hybrid fibre, etc) for a given address. I presume a nifty nelly reverse engineered one or some of the nbn [check your address](https://www.nbnco.com.au/connect-home-or-business/check-your-address) sites to figure them out.
 
-These APIs proved incredibly useful and so it only seemed right to package them up and make it easier for the next hacker to grab them and use them in their project.
+These APIs proved incredibly useful and so it only seemed right to package them up and make it easier for the next hacker to grab them and go for their project.
 
 Introducing [nbnpy](https://nbnpy.readthedocs.io), a python library that wraps up these unofficial NBN API’s to help you better understand the NBN connection details for a given address.
 
 {{< admonition type=success title="View the source" open=false >}}
-NBN-Py is all open source: [NBN-Py](https://github.com/diabolical-ninja/nbnpy)
+NBN-Py is all open source: [Find me on Github](https://github.com/diabolical-ninja/nbnpy)
 {{< /admonition >}}
 
 
@@ -36,13 +36,13 @@ First off we need to install the package:
 pip install nbnpy
 ```
 
-There are two steps involved when using the NBN API; first we must identify the unique ID for a location and second we can look up the connection information using that ID.
+There are two steps involved when using the NBN API; first we must identify the unique ID for a location and then we can look up the connection information using that ID.
 
 Two methods are provided for retrieving the location ID:    
 * via the address (`get_location_ids_from_address`)    
 * via the longitude and latitude (`get_location_ids_from_lat_long`)
     
-Lets do it:
+Let's do it:
 
 ```python
 from nbnpy.nbn import NBN
@@ -91,7 +91,7 @@ Printing out `location_ids` we get:
 }
 ```
 
-After choosing the desired location ID we can then lookup the associated NBN connection information.
+After choosing the desired location ID we can then look up the associated NBN connection information.
 
 ```python
 location_info = nbn_client.location_information("LOC000175010671")
