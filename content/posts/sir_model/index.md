@@ -186,9 +186,9 @@ Now obviously we've made some assumptions along the way, sanded off a few corner
 
 This is where the compartmental model becomes a really powerful tool. By following the same reasoning as with SIR we can introduce as many compartments as we like with different rates of movement, interactions and probabilistic behaviours.
 
-### let's add a vaccine
+### Let's add a vaccine
 
-let's say a vaccine was developed but we didn't have enough of it to vaccinate everyone. We can update our model to include vaccinated individuals heading straight to recovered and skipping the infectious stage. Our flow is updated to:
+Let's say a vaccine was developed but we didn't have enough of it to vaccinate everyone. We can update our model to include vaccinated individuals heading straight to recovered and skipping the infectious stage. Our flow is updated to:
 
 {{< mermaid >}}
 graph LR;
