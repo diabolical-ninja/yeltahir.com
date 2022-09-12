@@ -49,7 +49,7 @@ rss = 10
           disclaimer = "Data, Technology, Jazz"
 
     [params.social]
-        GitHub = "https://github.com/diabolical-ninja"
+        GitHub = "diabolical-ninja"
         Linkedin = "yassineltahir/"
 
     # Footer config
