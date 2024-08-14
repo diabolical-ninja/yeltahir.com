@@ -1,6 +1,6 @@
 ---
 title: "VCE Performance"
-date: 2024-08-09T00:00:00+11:00
+date: 2024-08-14T00:00:00+11:00
 draft: false
 
 resources:
