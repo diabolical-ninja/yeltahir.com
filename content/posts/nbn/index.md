@@ -18,7 +18,7 @@ These APIs proved incredibly useful and so it only seemed right to package them 
 
 Introducing [nbnpy](https://nbnpy.readthedocs.io), a python library that wraps up these unofficial NBN API’s to help you better understand the NBN connection details for a given address.
 
-{{< admonition type=success title="View the source" open=false >}}
+{{< admonition type=success title="View the source" open=true >}}
 NBN-Py is all open source: [Find me on Github](https://github.com/diabolical-ninja/nbnpy)
 {{< /admonition >}}
 
