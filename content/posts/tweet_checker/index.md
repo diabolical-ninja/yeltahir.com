@@ -56,20 +56,20 @@ At its heart it's a basic LLM prompt:<br><br>
 `{tweet}`
 <br><br>
 For a given input (tweet text) we should<sup>*</sup> receive the following elements:<br><br>
-```
-Bias:
-  - Rating: Bias rating between 1 and 10
-  - Spectrum: Spectrum of bias (left learning, neutral, right leaning)
 
-FactualAccuracy:
-  - Rating: Factual accuracy rating between 1 and 5
-  - Description: Description of the accuracy rating
+- **Bias:**
+  - `Rating`: Bias rating between 1 and 10
+  - `Spectrum`: Spectrum of bias (left learning, neutral, right leaning)
 
-TweetAnalysis:
-  - Bias: Bias from above
-  - Accuracy: FactualAccuracy from above
-  - Summary: Summary of the tweet
-```
+- **FactualAccuracy:**
+  - `Rating`: Factual accuracy rating between 1 and 5
+  - `Description`: Description of the accuracy rating
+
+- **TweetAnalysis:**
+  - `Bias`: Bias from above
+  - `Accuracy`: FactualAccuracy from above
+  - `Summary`: Summary of the tweet
+
 <br>
 <sup>*</sup>Should, because LLMs don’t guarantee a response format.
 
