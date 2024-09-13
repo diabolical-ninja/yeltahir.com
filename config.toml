@@ -72,7 +72,7 @@ rss = 10
         enable = true
         # Google Analytics
         [params.analytics.google]
-        id = "UA-179937683-1"
+        id = "G-8DG47DREGN"
         # whether to anonymize IP
         anonymizeIP = true
 
