@@ -59,7 +59,7 @@ For a given input (tweet text) we should<sup>*</sup> receive the following eleme
 
 - **Bias:**
   - `Rating`: Bias rating between 1 and 10
-  - `Spectrum`: Spectrum of bias (left learning, neutral, right leaning)
+  - `Spectrum`: Spectrum of bias (left leaning, neutral, right leaning)
 
 - **FactualAccuracy:**
   - `Rating`: Factual accuracy rating between 1 and 5
