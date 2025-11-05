@@ -4,9 +4,7 @@ date: 2020-10-17
 draft: false
 ---
 
-A data scientist who's worked in resources, e-commerce, insurance and banking. I have a keen interest on how technology can be used to make our lives faster, smarter, more automated and more informed.
-
-    
+An ML/AI engineering leader who's worked in resources, e-commerce, insurance and banking. I have a keen interest on how technology can be used to make our lives faster, smarter, more automated and more informed.
 
 # Contact
 
