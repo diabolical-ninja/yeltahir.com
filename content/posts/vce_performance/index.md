@@ -26,7 +26,7 @@ If you'd like to look under the covers it's all open source: [VCE School Perform
 
 
 ## Give it a try
-Before we get into the nitty gritty, try it out at: https://vce-performance.onrender.com/
+Before we get into the nitty gritty, try it out at: https://www.vcecompare.com/
 
 # The Data
 At the end of each school year the [VCAA](https://www.vcaa.vic.edu.au) publishes the [Secondary Completion and Achievement Information](https://www.vcaa.vic.edu.au/administration/research-and-statistics/Pages/SeniorSecondaryCompletion.aspx) which provides “data on…student cohorts and student achievements of schools delivering the Victorian Certificate of Education (VCE)...” for each school in the state. With data going back to 2014 it helps provide a window into year on year school performance and with it we can answer questions such as:
